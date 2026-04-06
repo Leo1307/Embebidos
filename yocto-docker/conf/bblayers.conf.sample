@@ -1,0 +1,17 @@
+# POKY_BBLAYERS_CONF_VERSION is increased each time build/conf/bblayers.conf
+# changes incompatibly
+POKY_BBLAYERS_CONF_VERSION = "2"
+
+BBPATH = "${TOPDIR}"
+BBFILES ?= ""
+
+BBLAYERS ?= " \
+  /workspace/poky/meta \
+  /workspace/poky/meta-poky \
+  /workspace/poky/meta-yocto-bsp \
+  /workspace/meta-openembedded/meta-oe \
+  /workspace/meta-openembedded/meta-python \
+  /workspace/meta-openembedded/meta-multimedia \
+  /workspace/poky/meta-local \
+  /workspace/poky/meta-rust-opencv \
+  "

@@ -1,1 +1,10 @@
 target/
+
+# Yocto build artifacts
+yocto-docker/workspace/
+**/build/
+**/tmp/
+**/downloads/
+**/sstate-cache/
+*.vdi
+*.qcow2

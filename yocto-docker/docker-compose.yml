@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  yocto-build:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: yocto-rust-opencv
+    hostname: yocto-build
+    tty: true
+    stdin_open: true
+    volumes:
+      # Bind mount: tu carpeta local workspace/ se monta en /workspace del contenedor
+      # Así todo lo que se genere persiste en tu disco
+      - ./workspace:/workspace
+      - ./layers:/workspace/layers 
+    # Recursos - Yocto necesita bastante RAM y CPU
+    deploy:
+      resources:
+        limits:
+          memory: 8G
+    environment:
+      - MACHINE=qemux86-64
+      - DISTRO=poky
+      - LANG=en_US.UTF-8
